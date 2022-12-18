@@ -24,6 +24,6 @@ app.use("/api/like", likeRoutes)
 app.use("/api/post", postRoutes)
 app.use("/api/users", userRoutes)
 
-app.listen(8000, () => {
+app.listen(8800, () => {
     console.log("server online")
 })
