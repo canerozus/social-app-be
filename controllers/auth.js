@@ -2,7 +2,7 @@ const { db } = require("../routes/connect");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 const register = (req, res) => {
-    //CHECK USER IF EXISTS
+    //check user
 
     const q = "SELECT * FROM users WHERE username = ?";
 
@@ -15,8 +15,7 @@ const register = (req, res) => {
         const salt = bcrypt.genSaltSync(10);
         const hashedPassword = bcrypt.hashSync(req.body.password, salt);
 
-        const q =
-            "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?)";
+        const q = "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?)";
 
         const values = [
             req.body.username,
@@ -27,7 +26,7 @@ const register = (req, res) => {
 
         db.query(q, [values], (err, data) => {
             if (err) return res.status(500).json(err);
-            return res.status(200).json("User created!");
+            return res.status(200).json("User created! Directing to login page...");
         });
     });
 };
