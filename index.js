@@ -21,7 +21,7 @@ app.use(cookieParser())
 app.use("/api/auth",authRoutes)
 app.use("/api/comment", commentRoutes)
 app.use("/api/like", likeRoutes)
-app.use("/api/post", postRoutes)
+app.use("/api/posts", postRoutes)
 app.use("/api/users", userRoutes)
 
 app.listen(8800, () => {
