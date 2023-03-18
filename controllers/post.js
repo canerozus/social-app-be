@@ -1,12 +1,19 @@
 const { db } = require("../routes/connect.js");
-
+const jwt = require("jsonwebtoken");
 
 const getPosts = (req, res) => {
-    const q = `SELECT p.*, u.id AS userId, name, profilePic FROM posts AS p JOIN users AS U ON (u.id = p.userId)`
+    const token = req.cookies.accesToken;
+    if (!token) return res.status(401).json("Not Logged In!")
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid!")
 
-    db.query(q, (err, data) => {
-        if (err) return res.status(500).json(err)
-        return res.status(200).json(data)
+        const q = `SELECT p.*, u.id AS userId, name, profilePic FROM posts AS p JOIN users AS U ON (u.id = p.userId)
+        JOIN relationships AS r ON (p.userId = r.followedUserId AND r.followerUserId = ?)`;
+
+        db.query(q, [userInfo], (err, data) => {
+            if (err) return res.status(500).json(err)
+            return res.status(200).json(data)
+        })
     })
 
 }
