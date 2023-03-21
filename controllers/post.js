@@ -35,7 +35,6 @@ const addPost = (req, res) => {
             moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
             userInfo.id
         ]
-        console.log(req.body.ing)
         db.query(q, [values], (err, data) => {
             if (err) return res.status(500).json(err)
             return res.status(200).json("Post has been created.")
