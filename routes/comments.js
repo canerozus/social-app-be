@@ -1,8 +1,8 @@
 const express = require("express");
-const {  } = require("../controllers/comment.js");
+const { getComments } = require("../controllers/comment.js");
 
 const router = express.Router();
 
-router.get("",)
+router.get("/", getComments)
 
 module.exports = router;
