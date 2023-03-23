@@ -11,6 +11,7 @@ const getComments = (req, res) => {
         if (err) return res.status(500).json(err)
         return res.status(200).json(data)
     })
+
 }
 const addComments = (req, res) => {
     const token = req.cookies.accessToken;

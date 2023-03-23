@@ -1,8 +1,8 @@
 const express = require("express");
-const {  } = require("../controllers/like.js");
+const { getLikes } = require("../controllers/like.js");
 
 const router = express.Router();
 
-router.get("",)
+router.get("/",getLikes)
 
 module.exports = router;
