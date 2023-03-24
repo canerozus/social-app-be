@@ -1,4 +1,10 @@
 {
+    "development":{
+        "username":"root",
+        "password": "password",
+        "database": "social",
+        "host":"127.0.0.1"
+    },
     "production": {
         "username": "be16deaa660c73",
         "password": "d587c9c3",
