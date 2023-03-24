@@ -6,6 +6,7 @@ const postRoutes = require("./routes/posts.js");
 const userRoutes = require("./routes/users.js");
 const relationshipsRoutes = require("./routes/relationships.js");
 const app = express();
+
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
 const multer = require("multer");
