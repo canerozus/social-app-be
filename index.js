@@ -4,6 +4,7 @@ const commentRoutes = require("./routes/comments.js");
 const likeRoutes = require("./routes/likes.js");
 const postRoutes = require("./routes/posts.js");
 const userRoutes = require("./routes/users.js");
+const relationshipsRoutes = require("./routes/relationships.js");
 const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
@@ -42,6 +43,7 @@ app.use((req, res, next) => {
   app.use("/api/posts", postRoutes);
   app.use("/api/comments", commentRoutes);
   app.use("/api/likes", likeRoutes);
+  app.use("/api/relationships", relationshipsRoutes);
 
   
   app.listen(8800, () => {
