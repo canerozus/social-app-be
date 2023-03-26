@@ -47,6 +47,6 @@ app.use((req, res, next) => {
   app.use("/api/relationships", relationshipsRoutes);
 
   
-  app.listen(8800, () => {
+  app.listen(process.env.PORT ||8800, () => {
     console.log("server online");
   });
