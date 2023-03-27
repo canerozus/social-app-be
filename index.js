@@ -7,6 +7,7 @@ const userRoutes = require("./routes/users.js");
 const relationshipsRoutes = require("./routes/relationships.js");
 const app = express();
 
+
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
 const multer = require("multer");
@@ -17,9 +18,7 @@ app.use((req, res, next) => {
   });
   app.use(express.json());
   app.use(
-    cors({
-      origin: "http://localhost:3000",
-    })
+    cors()
   );
   app.use(cookieParser());
   
@@ -47,6 +46,6 @@ app.use((req, res, next) => {
   app.use("/api/relationships", relationshipsRoutes);
 
   
-  app.listen(process.env.PORT ||8800, () => {
+  app.listen(process.env.PORT || 8800, () => {
     console.log("server online");
   });
