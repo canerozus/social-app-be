@@ -17,11 +17,12 @@ app.use((req, res, next) => {
     next();
   });
   app.use(express.json());
-  app.use(
-    cors({
-      origin: "http://localhost:3000",
-    })
-  );
+  app.use(cors({
+
+    credentials: true,
+ 
+    origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:8800'] //CLOUD
+}))
   app.use(cookieParser());
   
   const storage = multer.diskStorage({
