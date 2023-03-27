@@ -18,10 +18,8 @@ app.use((req, res, next) => {
   });
   app.use(express.json());
   app.use(cors({
-
     credentials: true,
- 
-    origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:8800'] //CLOUD
+    origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:8800']
 }))
   app.use(cookieParser());
   
