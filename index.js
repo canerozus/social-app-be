@@ -19,6 +19,7 @@ app.use((req, res, next) => {
   app.use(express.json());
   app.use(cors({
     credentials: true,
+    
     origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:3000']
 }))
   app.use(cookieParser());
