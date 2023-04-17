@@ -5,7 +5,8 @@ const db = mysql.createConnection({
 MYSQLHOST: "localhost",
 MYSQLUSER: "root",
 MYSQLPASSWORD: "password",
-MYSQLDATABASE: "social"
+MYSQLDATABASE: "social",
+MYSQLPORT:3306
 })
 module.exports = { db }
 
