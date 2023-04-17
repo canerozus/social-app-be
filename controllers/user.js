@@ -1,5 +1,5 @@
-const { db } = require("../routes/connect.js");
-const jwt = require("jsonwebtoken");
+const { db } = require("../connect.js");
+
 
 const getUser = (req, res) => {
     const userId = req.params.userId;

@@ -1,4 +1,4 @@
-const { db } = require("../routes/connect");
+const { db } = require("../connect");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken")
 

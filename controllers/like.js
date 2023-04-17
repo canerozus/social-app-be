@@ -1,4 +1,4 @@
-const { db } = require("../routes/connect.js");
+const { db } = require("../connect.js");
 const jwt = require("jsonwebtoken");
 
 const getLikes = (req, res) => {

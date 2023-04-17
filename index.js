@@ -7,7 +7,6 @@ const userRoutes = require("./routes/users.js");
 const relationshipsRoutes = require("./routes/relationships.js");
 const app = express();
 
-
 const cors = require("cors");
 const cookieParser = require("cookie-parser")
 const multer = require("multer");
@@ -20,7 +19,7 @@ app.use(express.json());
 app.use(cors({
   credentials: true,
 
-  origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:3000']
+  origin:'http://localhost:3000'
 }))
 app.use(cookieParser());
 
