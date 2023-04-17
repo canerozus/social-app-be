@@ -13,41 +13,43 @@ const cookieParser = require("cookie-parser")
 const multer = require("multer");
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Credentials", true);
-    next();
-  });
-  app.use(express.json());
-  app.use(cors({
-    credentials: true,
-    
-    origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:3000']
-}))
-  app.use(cookieParser());
-  
-  const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "../social-app/public/upload");
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + file.originalname);
-    },
-  });
-  
-  const upload = multer({ storage: storage });
-  
-  app.post("/api/upload", upload.single("file"), (req, res) => {
-    const file = req.file;
-    res.status(200).json(file.filename);
-  });
-  
-  app.use("/api/auth", authRoutes);
-  app.use("/api/users", userRoutes);
-  app.use("/api/posts", postRoutes);
-  app.use("/api/comments", commentRoutes);
-  app.use("/api/likes", likeRoutes);
-  app.use("/api/relationships", relationshipsRoutes);
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+});
+app.use(express.json());
+app.use(cors({
+  credentials: true,
 
-  
-  app.listen(process.env.PORT || 8800, () => {
-    console.log("server online");
-  });
+  origin: ['https://social-caner-backend.herokuapp.com', 'http://localhost:3000']
+}))
+app.use(cookieParser());
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../social-app/public/upload");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
+
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/likes", likeRoutes);
+app.use("/api/relationships", relationshipsRoutes);
+
+app.get("/", (req, res) => {
+  res.json("server start")
+})
+app.listen(process.env.PORT || 8800, () => {
+  console.log("server online");
+});
