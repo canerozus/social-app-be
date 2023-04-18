@@ -11,8 +11,4 @@ const db = mysql.createConnection({
 
 module.exports = { db };
 
-// host: "localhost",
-// user: "root",
-// password: "password",
-// database: "social"
 
