@@ -11,9 +11,5 @@ database: process.env.DBDATABASE
 
 module.exports = { db };
 
-// host: "localhost",
-// user: "root",
-// password: "password",
-// database: "social"
 
 
